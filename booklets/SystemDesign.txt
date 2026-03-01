@@ -1,0 +1,44 @@
+The Flow (in plain English)
+
+A Warehouse Manager opens the Web UI and registers a new parcel (destination + weight)
+The Warehouse Service saves it to the DB and shouts "hey, new parcel!" onto a message queue
+The Dispatcher Service is listening to that queue, picks up the message, finds an available courier, and tells the Courier Service "assign this parcel to courier X"
+The Courier Service saves the assignment and marks the courier as busy
+Later, the courier updates the delivery status (delivered / failed) — again through the Courier Service
+Meanwhile, a Spark batch job periodically reads all delivery data and computes statistics
+The Warehouse Manager / Admin can see parcel statuses and analytics reports from the Web UI
+
+
+The Services
+warehouse-service — the front door of the system
+
+Receives parcel registration requests from the Web UI via REST
+Saves the parcel to PostgreSQL
+Publishes a JMS message to ActiveMQ to notify the rest of the system
+Also handles parcel status queries from the Web UI
+
+dispatcher-service — the coordinator, has no API of its own
+
+Listens to ActiveMQ for parcel.registered messages
+When it gets one, it picks an available courier from the DB
+Calls the Courier Service via gRPC to formally assign the delivery
+Purely event-driven — nobody calls it directly, it reacts to messages
+
+courier-service — manages couriers and deliveries
+
+Exposes a gRPC API used by the dispatcher to assign deliveries
+Also exposes a gRPC endpoint for couriers to update delivery status (delivered / failed)
+Updates PostgreSQL accordingly and frees up the courier when done
+
+analytics (Scala + Spark) — the batch job
+
+Not a long-running server — runs once, does its job, exits
+Reads the deliveries and parcels tables from PostgreSQL
+Computes delivery success rate and average delivery time per city
+Writes results to a CSV file on a shared Docker volume
+
+web-ui — the browser interface
+
+Static HTML + JavaScript served by Nginx
+Talks only to warehouse-service via REST (register parcel, check status)
+Also serves the CSV analytics report as a readable table
