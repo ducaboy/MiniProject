@@ -1,0 +1,12 @@
+# SYSTEM DESCRIPTION
+
+The system allows warehouse to track parcels, dispatch delivery jobs to couriers and analyxe delivery performance. 
+
+# USER STORIES
+
+1) As a warehouse manager, i want to register new parcel with its destination and weight, so that it enters the logistics system and can be dispatched.
+2)As a Warehouse Manager, I want to view the current status of a registered parcel, so that I know whether it has been dispatched and delivered.
+3)As a Dispatcher, I want the system to automatically assign an available courier when a new parcel is registered, so that dispatch happens without manual intervention.
+4)As a Courier, I want to update the status of my assigned delivery (picked up, delivered, or failed), so that the system reflects the real-world state of the parcel.
+5)As an Admin, I want a Spark batch job to compute delivery statistics, so that I can understand the performance of the logistics network.
+6)As an Admin, I want to view the latest analytics report from the Web UI, so that I don't need to access the server directly.
