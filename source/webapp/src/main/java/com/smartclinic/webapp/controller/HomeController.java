@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.smartclinic.webapp.model.Role;
+import org.springframework.ui.Model;
 
 @Controller
 public class HomeController {
@@ -91,18 +92,34 @@ public class HomeController {
     }
 
     @GetMapping("/appointments")
-    public String listAppointments(org.springframework.ui.Model model,
-                                   jakarta.servlet.http.HttpSession session){
+    public String listAppointments(Model model, HttpSession session) {
 
-
-        Object loggedUser = session.getAttribute("loggedUser");
+        User loggedUser = (User) session.getAttribute("loggedUser");
 
         if (loggedUser == null) {
             return "redirect:/";
         }
 
-        model.addAttribute("appointments" , appointmentRepository.findAll());
+        Role role = (Role) session.getAttribute("userRole");
+
+        if (role == Role.ADMIN) {
+            model.addAttribute("appointments", appointmentRepository.findAll());
+        } else {
+            model.addAttribute("appointments",
+                    appointmentRepository.findAll()
+                            .stream()
+                            .filter(a -> a.getPatientName().equals(loggedUser.getUsername()))
+                            .toList());
+        }
 
         return "appointments";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+
+        session.invalidate(); // Destroy session
+
+        return "redirect:/";
     }
 }
