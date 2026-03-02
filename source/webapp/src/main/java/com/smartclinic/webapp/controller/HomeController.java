@@ -30,7 +30,7 @@ public class HomeController {
         User user = new User(username, password);
         userRepository.save(user);
 
-        return "redirect:/index.html";
+        return "redirect:/";
     }
 
     @PostMapping("/book")
@@ -45,7 +45,7 @@ public class HomeController {
 
         appointmentRepository.save(appointment);
 
-        return "redirect:/index.html";
+        return "redirect:/appointments.html";
     }
 
     @GetMapping("/users")
@@ -54,5 +54,13 @@ public class HomeController {
         model.addAttribute("users", userRepository.findAll());
 
         return "users";
+    }
+
+    @GetMapping("/appointments")
+    public String listAppointments(org.springframework.ui.Model model){
+
+        model.addAttribute("appointments" , appointmentRepository.findAll());
+
+        return "appointments";
     }
 }
