@@ -9,16 +9,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.smartclinic.webapp.model.Role;
 import org.springframework.ui.Model;
+import com.smartclinic.webapp.messaging.AppointmentProducer;
 
 @Controller
 public class HomeController {
 
     private final UserRepository userRepository;
     private final AppointmentRepository appointmentRepository;
+    private final AppointmentProducer appointmentProducer;
 
-    public HomeController(UserRepository userRepository , AppointmentRepository appointmentRepository) {
+    public HomeController(UserRepository userRepository , AppointmentRepository appointmentRepository,
+                          AppointmentProducer appointmentProducer) {
         this.userRepository = userRepository;
         this.appointmentRepository = appointmentRepository;
+        this.appointmentProducer = appointmentProducer;
     }
 
     @GetMapping("/")
@@ -78,7 +82,12 @@ public class HomeController {
                 "PENDING"
         );
 
-        appointmentRepository.save(appointment);
+        Appointment saved = appointmentRepository.save(appointment);
+
+        appointmentProducer.sendAppointmentCreated(
+                saved.getPatientName(),
+                saved.getDate().toString()
+        );
 
         return "redirect:/";
     }

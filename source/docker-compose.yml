@@ -26,5 +26,12 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
 
+  activemq:
+    image: rmohr/activemq:latest
+    container_name: smartclinic-activemq
+    ports:
+      - "61616:61616"
+      - "8161:8161"
+
 volumes:
   postgres_data:
