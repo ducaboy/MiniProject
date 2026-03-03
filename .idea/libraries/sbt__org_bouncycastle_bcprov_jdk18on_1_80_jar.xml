@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: org.bouncycastle:bcprov-jdk18on:1.80:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="org.bouncycastle" artifactId="bcprov-jdk18on" version="1.80" baseVersion="1.80" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/1.80/bcprov-jdk18on-1.80.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/org/bouncycastle/bcprov-jdk18on/1.80/bcprov-jdk18on-1.80-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

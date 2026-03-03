@@ -3,6 +3,23 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MiniProject.iml" filepath="$PROJECT_DIR$/.idea/MiniProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Scala_Spark.iml" filepath="$PROJECT_DIR$/.idea/modules/Scala_Spark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/Scala_Spark/.idea/modules/Scala_Spark/Scala_Spark.Scala_Spark-build.iml" filepath="$PROJECT_DIR$/source/analytics/Scala_Spark/.idea/modules/Scala_Spark/Scala_Spark.Scala_Spark-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/Scala_Spark/.idea/modules/Scala_Spark/Scala_Spark.main.iml" filepath="$PROJECT_DIR$/source/analytics/Scala_Spark/.idea/modules/Scala_Spark/Scala_Spark.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/Scala_Spark/.idea/modules/Scala_Spark/Scala_Spark.test.iml" filepath="$PROJECT_DIR$/source/analytics/Scala_Spark/.idea/modules/Scala_Spark/Scala_Spark.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.iml" filepath="$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.analytics-build.iml" filepath="$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.analytics-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.main.iml" filepath="$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.test.iml" filepath="$PROJECT_DIR$/source/analytics/.idea/modules/analytics/analytics.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/.idea/modules/source/source.iml" filepath="$PROJECT_DIR$/source/.idea/modules/source/source.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/.idea/modules/source/source.main.iml" filepath="$PROJECT_DIR$/source/.idea/modules/source/source.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/.idea/modules/source/source.source-build.iml" filepath="$PROJECT_DIR$/source/.idea/modules/source/source.source-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/.idea/modules/source/source.test.iml" filepath="$PROJECT_DIR$/source/.idea/modules/source/source.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/untitled.iml" filepath="$PROJECT_DIR$/.idea/modules/untitled.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/untitled/.idea/modules/untitled/untitled.main.iml" filepath="$PROJECT_DIR$/source/analytics/untitled/.idea/modules/untitled/untitled.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/untitled/.idea/modules/untitled/untitled.test.iml" filepath="$PROJECT_DIR$/source/analytics/untitled/.idea/modules/untitled/untitled.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/analytics/untitled/.idea/modules/untitled/untitled.untitled-build.iml" filepath="$PROJECT_DIR$/source/analytics/untitled/.idea/modules/untitled/untitled.untitled-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/source/webapp/webapp.iml" filepath="$PROJECT_DIR$/source/webapp/webapp.iml" />
     </modules>
   </component>
 </project>
